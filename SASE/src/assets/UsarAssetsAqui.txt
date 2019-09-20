@@ -1,0 +1,1 @@
+Assets são arquivos constantes no projeto Ex: Imagens

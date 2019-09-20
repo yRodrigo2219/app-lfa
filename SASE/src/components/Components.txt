@@ -1,0 +1,2 @@
+Components são as partes de interface que são re-utilizadas no aplicativo.
+    Ex: Um Header, um Footer.
