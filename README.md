@@ -38,7 +38,7 @@ Todos os estilos, o "CSS" do app. React-Native não usa o CSS literalmente, tem 
 
 Arquivo onde se localizará toda a lógica de roteamento do app, aqui será definido quais os métodos de troca de tela. Ex: Navegação com menu lateral, navegação entre abas, navegação com botões e etc.
 
-#### Ferramentas Utilizadas
+### Ferramentas Utilizadas
 
 - **NodeJS**
 - **Yarn**
