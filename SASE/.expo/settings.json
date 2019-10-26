@@ -1,7 +1,7 @@
 {
+  "urlRandomness": "nu-ns2",
   "hostType": "lan",
   "lanType": "ip",
   "dev": true,
-  "minify": false,
-  "urlRandomness": "4a-sbz"
+  "minify": false
 }

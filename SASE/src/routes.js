@@ -8,20 +8,32 @@ import Signup from "./screens/auth/SignupScreen";
 import AuthLoading from "./screens/auth/AuthScreen";
 
 import Main from "./screens/app/MainScreen";
+import Rest from "./screens/app/RestaurantScreen";
+import Wait from "./screens/app/WaitRoom";
 
 const AuthNavigator = createStackNavigator({
+    SignupScreen:{
+        screen: Signup
+    },
     LoginScreen:{
         screen: Login
     },
-    SignupScreen:{
-        screen: Signup
-    }
+    
+    
 });
 
 const AppNavigator = createStackNavigator({
+    RestScreen:{
+        screen: Rest
+    },
     MainScreen:{
         screen: Main
-    }
+    },
+    WaitScreen:{
+        screen: Wait
+    },
+    
+    
 });
 
 export default createAppContainer(createSwitchNavigator(
@@ -30,6 +42,6 @@ export default createAppContainer(createSwitchNavigator(
         App: AppNavigator,
         Auth: AuthNavigator
     },{
-        initialRouteName: 'AuthLoading'
+        initialRouteName: 'App'
     }
 ));
