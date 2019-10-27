@@ -28,7 +28,6 @@ export default StyleSheet.create({
         marginTop : 30
     },
     buttonsRestProd:{
-        width : 300,
-        alignSelf : 'center'
+        width : 200
     }
 });

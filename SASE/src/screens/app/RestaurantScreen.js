@@ -1,51 +1,69 @@
 import React, { Component } from 'react';
 import { View,
     Text,
-    FlatList } from 'react-native';
-import { Button,
-    Image } from 'react-native-elements';
+    FlatList,
+    Alert } from 'react-native';
+    
+import { Image,
+    ListItem } from 'react-native-elements';
 
-import Gstyle from '../GlobalStyle'
-
-export default class MainScreen extends Component{
+export default class RestaurantScreen extends Component{
     state = {
-        produtos:[
-            {id :1,name:"Produto 1"},
-            {id :2,name:"Produto 2"},
-            {id :3,name:"Produto 3"},
-            {id :4,name:"Produto 4"},
-            {id :5,name:"Produto 5"},
-            {id :6,name:"Produto 6"},
-            {id :7,name:"Produto 7"},
-            {id :8,name:"Produto 8"},
-            {id :9,name:"Produto 9"},
-            {id :10,name:"Produto 10"},
-            {id :11,name:"Produto 11"},
-            {id :12,name:"Produto 12"},
-            {id :13,name:"Produto 13"},
-        ],
+        produtos:[],
+        name: ""
     }
 
-    renderItem = ({item})=>(
-        <View>
-            <Button
-                title = {item.name}
+    componentDidMount(){
+        this.setState({produtos: this.props.navigation.state.params.produtos});
+        this.setState({name: this.props.navigation.state.params.name});
+    }
+
+    renderItem = ({item}) =>(
+        <ListItem
+            key={item.id}
+            leftAvatar={{source: require("../../assets/teste.jpg")}}
+            title={item.name}
+            subtitle={"Comida boa!"}
+            badge={{value: "R$ 0.99"}}
+            onPress={_=>{this.renderAlert(item)}}
+            bottomDivider
+        />
+    )
+
+    renderAlert = item =>{
+        Alert.alert(
+            'Deseja mesmo fazer o pedido?',
+            `${item.name} por R$ 0.99`,
+            [
+                {text: 'Confirmar', onPress: () => this.confirmBuy(item)},
+                {text: 'Cancelar'}
+            ]
+        );
+    }
+
+    confirmBuy = item =>{
+        console.log('Comprando...');
+    }
+
+    renderHeader = ()=>(
+        <View style={{padding: 8, alignItems: 'center'}}>
+            <Image 
+            source={require("../../assets/teste.jpg")}
+            style={{ width: 100, height: 100 }}
             />
+            
+            <Text style={{fontSize: 22}}> {this.state.name} </Text>
         </View>
     )
+
     render(){
         return(
-            <View>
-                <Image
-                    source={{uri:"./assets/teste.jpg"}}
-                    style={{ width: 60, height: 60 }}
-                />
-                <FlatList style = {[Gstyle.buttonsRestProd]}
+            <FlatList
+                ListHeaderComponent={this.renderHeader}
                 data ={this.state.produtos}
                 renderItem={this.renderItem}
                 keyExtractor = {item => item.id}
-                />
-            </View>
+            />
         );
     }
 }
