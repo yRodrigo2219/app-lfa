@@ -43,6 +43,7 @@ Arquivo onde se localizará toda a lógica de roteamento do app, aqui será defi
 - **NodeJS**
 - **Yarn**
 - **Genymotion**
+- **Expo
 
 #### NodeJS
 
@@ -65,6 +66,12 @@ O gerenciador de smartphones virtuais para se poder testar o app, recomendado, p
 
 - [Configurações de ambiente de desenvolvimento](https://docs.rocketseat.dev/ambiente-react-native/introducao)
 
+#### Expo
+
+Plataforma de desenvolvimento em React Native.
+
+`npm install -g expo-cli` instala ele globalmente. Necessario para rodar o server de desenvolvimento.
+
 ### Ferramentas Opcionais
 
 - [**VSCode**](https://code.visualstudio.com/download)
@@ -72,3 +79,7 @@ O gerenciador de smartphones virtuais para se poder testar o app, recomendado, p
 ### Comandos para execução
 
 `yarn start` inicia o servidor de desenvolvimento, expo, do projeto. O ambiente de desenvolvimento deve estar configurado corretamente para que se possa ter sucesso com a execução do aplicativo.
+
+## Backend
+
+`node index.js` inicia o servidor. (Sim, só isso)
