@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Seu Zé",
+        "desc": "Mecadin",
+        "id": "0",
+        "menu":[
+            {
+                "id": "0",
+                "name": "Coxa de frango",
+                "desc": "Bom e barato",
+                "price": 5.20,
+                "status":"Processando pagamento"
+            },
+            {
+                "id": "1",
+                "name": "Bolo",
+                "desc": "Bom de mais",
+                "price": 12,
+                "status":"Processando pagamento"
+            }
+        ]
+    },
+    {
+        "name": "Mec",
+        "desc": "Do seu lado",
+        "id": "1",
+        "menu":[
+            {
+                "id": "2",
+                "name": "X-Burger",
+                "desc": "Top",
+                "price": 8,
+                "status":"Processando pagamento"
+            },
+            {
+                "id": "3",
+                "name": "Carne seca",
+                "desc": "Caro",
+                "price": 30,
+                "status":"Processando pagamento"
+            }
+        ]
+    }
+]

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View,
     Text,
     FlatList,
-    Alert } from 'react-native';
+    Alert, 
+    AsyncStorage} from 'react-native';
     
 import { Image,
     ListItem } from 'react-native-elements';
@@ -10,12 +11,14 @@ import { Image,
 export default class RestaurantScreen extends Component{
     state = {
         produtos:[],
-        name: ""
+        name: "",
+        user: ""
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         this.setState({produtos: this.props.navigation.state.params.produtos});
         this.setState({name: this.props.navigation.state.params.name});
+        this.setState({user: await AsyncStorage.getItem('user')});
     }
 
     renderItem = ({item}) =>(
@@ -23,8 +26,8 @@ export default class RestaurantScreen extends Component{
             key={item.id}
             leftAvatar={{source: require("../../assets/teste.jpg")}}
             title={item.name}
-            subtitle={"Comida boa!"}
-            badge={{value: "R$ 0.99"}}
+            subtitle={item.desc}
+            badge={{value: "R$ "+item.price}}
             onPress={_=>{this.renderAlert(item)}}
             bottomDivider
         />
@@ -33,7 +36,7 @@ export default class RestaurantScreen extends Component{
     renderAlert = item =>{
         Alert.alert(
             'Deseja mesmo fazer o pedido?',
-            `${item.name} por R$ 0.99`,
+            `${item.name} por R$ ${item.price}`,
             [
                 {text: 'Confirmar', onPress: () => this.confirmBuy(item)},
                 {text: 'Cancelar'}
@@ -42,7 +45,15 @@ export default class RestaurantScreen extends Component{
     }
 
     confirmBuy = item =>{
-        console.log('Comprando...');
+        fetch(`http://192.168.56.1:3000/pedido?login=${this.state.user}&pedido=${encodeURIComponent(JSON.stringify(item))}`,{
+            method: 'post'
+        }).then((res)=>{
+            return res.json();
+        }).then((res)=>{
+            if(!res.ok){
+                Alert.alert('Erro na compra', 'Tente novamente em instantes');
+            }
+        });
     }
 
     renderHeader = ()=>(

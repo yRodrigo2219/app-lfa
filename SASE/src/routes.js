@@ -13,11 +13,11 @@ import Wait from "./screens/app/WaitRoom";
 import Restaurante from "./screens/app/Restaurante";
 
 const AuthNavigator = createStackNavigator({
-    SignupScreen:{
-        screen: Signup
-    },
     LoginScreen:{
         screen: Login
+    },
+    SignupScreen:{
+        screen: Signup
     },
 });
 
@@ -42,6 +42,6 @@ export default createAppContainer(createSwitchNavigator(
         App: AppNavigator,
         Auth: AuthNavigator
     },{
-        initialRouteName: 'App'
+        initialRouteName: 'AuthLoading'
     }
 ));

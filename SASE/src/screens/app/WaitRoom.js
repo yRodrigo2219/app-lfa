@@ -7,13 +7,11 @@ import {
 
 export default class WaitRoom extends Component{
     state = {
-        name: "",
-        status: 0
+        item: {}
     }
 
     componentDidMount(){
-        this.setState({status: this.props.navigation.state.params.status});
-        this.setState({name: this.props.navigation.state.params.name});
+        this.setState({status: this.props.navigation.state.params.item});
     }
 
     render(){
@@ -22,7 +20,7 @@ export default class WaitRoom extends Component{
                 <ProgressBarAndroid styleAttr = "Horizontal" 
                     color = "#00FF00"
                     indeterminate = {false}
-                    progress = {0.25}
+                    progress = {0}
                 />
                 
                 <View style={{flexDirection: 'row'}}>
