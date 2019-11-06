@@ -8,14 +8,14 @@
                 "id": "0",
                 "name": "Coxa de frango",
                 "desc": "Bom e barato",
-                "price": 5.20,
+                "price": "5,20",
                 "status":"Processando pagamento"
             },
             {
                 "id": "1",
                 "name": "Bolo",
                 "desc": "Bom de mais",
-                "price": 12,
+                "price": "12,00",
                 "status":"Processando pagamento"
             }
         ]
@@ -29,14 +29,14 @@
                 "id": "2",
                 "name": "X-Burger",
                 "desc": "Top",
-                "price": 8,
+                "price": "8,00",
                 "status":"Processando pagamento"
             },
             {
                 "id": "3",
                 "name": "Carne seca",
                 "desc": "Caro",
-                "price": 30,
+                "price": "30,00",
                 "status":"Processando pagamento"
             }
         ]

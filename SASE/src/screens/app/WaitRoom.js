@@ -5,37 +5,56 @@ import {
     Text
     } from "react-native";
 
+import { Image,
+    ListItem } from 'react-native-elements';
+
 export default class WaitRoom extends Component{
     state = {
-        item: {}
+        item: {},
+        progress: 0
     }
 
+    timer = setInterval(()=>{if(this.state.progress < 1){
+        this.setState({progress: this.state.progress+0.01});
+    }},500);    
+
     componentDidMount(){
-        this.setState({status: this.props.navigation.state.params.item});
+        this.setState({item: this.props.navigation.state.params.item});
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.timer);
     }
 
     render(){
         return(
             <View>
+                <ListItem
+                    key={this.state.item.id}
+                    leftAvatar={{source: require("../../assets/teste.jpg")}}
+                    title={this.state.item.name}
+                    subtitle={this.state.item.desc}
+                    bottomDivider
+                />
+
+
                 <ProgressBarAndroid styleAttr = "Horizontal" 
                     color = "#00FF00"
                     indeterminate = {false}
-                    progress = {0}
+                    progress = {this.state.progress}
+                    style={{}}
                 />
-                
+
                 <View style={{flexDirection: 'row'}}>
-                    <Text style={{marginRight: 25}}>
-                        Pedido feito
+                    <Text style={{marginLeft: 10 ,marginRight: 60}}>
+                        Pagamento feito
                     </Text>
 
-                    <Text style={{marginRight: 25}}>
+                    <Text style={{marginRight: 60}}>
                         Preparando
                     </Text>
-                    <Text style={{marginRight: 25}}>
+                    <Text style={{}}>
                         Pronto
-                    </Text>
-                    <Text style={{marginRight: 25}}>
-                        Pedido Finalizado
                     </Text>
                 </View>
 

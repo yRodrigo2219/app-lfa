@@ -40,29 +40,37 @@ export default class SignupScreen extends Component{
 
     render(){
         return(
-            <View>
-                <TextInput style = {[Gstyle.inputSignUpScreen]}
+            <View style={{padding: 20, paddingTop: "30%"}}>
+                <TextInput style = {[Gstyle.inputTextLoginScreen]}
                     placeholder = 'Nome Completo'
                     value = {this.state.name}
                     onChangeText = {(v)=>this.setState({name:v})}
                 />
-                <TextInput style = {[Gstyle.inputSignUpScreen]}
+                <TextInput style = {[Gstyle.inputTextLoginScreen]}
                     placeholder = 'E-mail'
                     value = {this.state.login}
                     onChangeText = {(v)=>this.setState({login:v})}
                 />
-                <TextInput style = {[Gstyle.inputSignUpScreen]}
+                <TextInput style = {[Gstyle.inputTextLoginScreen]}
                     placeholder = 'Senha'
                     value = {this.state.senha}
                     onChangeText = {(v)=>this.setState({senha:v})}
                     secureTextEntry = {true}
                 />
-                <TextInput style = {[Gstyle.inputSignUpScreen]}
+                <TextInput style = {[Gstyle.inputTextLoginScreen]}
                     placeholder = 'CPF'
                     value = {this.state.cpf}
                     onChangeText = {(v)=>this.setState({cpf:v})}
                 />
-                <TextInput style = {[Gstyle.inputSignUpScreen]}
+                <TextInput style = {{
+                        height : 40,
+                        borderRadius: 5,
+                        borderColor: 'black',
+                        borderWidth: 1,
+                        marginBottom: 10,
+                        paddingLeft: 10,
+                        marginBottom: 55
+                    }}
                     placeholder = 'Telefone'
                     value = {this.state.phone}
                     onChangeText = {(v)=>this.setState({phone:v})}

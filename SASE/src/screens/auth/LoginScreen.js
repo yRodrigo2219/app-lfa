@@ -16,7 +16,7 @@ export default class LoginScreen extends Component{
     state = {
         login: "",
         senha: "",
-        check: false
+        check: true
     }
 
     login = async _=>{
@@ -39,9 +39,9 @@ export default class LoginScreen extends Component{
 
     render(){
         return(
-            <View>
+            <View style={{padding: 20, paddingTop: "30%"}}>
                 <TextInput style = {[Gstyle.inputTextLoginScreen]}
-                    placeholder = "Usuário"
+                    placeholder = "Email"
                     onChangeText = {(v)=>this.setState({login: v})}
                     value = {this.state.login}
                 />

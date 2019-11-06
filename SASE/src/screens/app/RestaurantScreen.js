@@ -27,7 +27,7 @@ export default class RestaurantScreen extends Component{
             leftAvatar={{source: require("../../assets/teste.jpg")}}
             title={item.name}
             subtitle={item.desc}
-            badge={{value: "R$ "+item.price}}
+            badge={{value: "R$ "+item.price, badgeStyle:{paddingTop:10, paddingBottom:10}}}
             onPress={_=>{this.renderAlert(item)}}
             bottomDivider
         />
@@ -52,6 +52,8 @@ export default class RestaurantScreen extends Component{
         }).then((res)=>{
             if(!res.ok){
                 Alert.alert('Erro na compra', 'Tente novamente em instantes');
+            }else{
+                Alert.alert('Compra feita com sucesso!')
             }
         });
     }

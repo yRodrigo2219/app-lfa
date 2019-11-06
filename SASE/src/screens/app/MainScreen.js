@@ -20,9 +20,15 @@ export default class MainScreen extends Component{
         });
     }
 
+    timer = setInterval(()=>{this.getPedidos()}, 1000);
+
     async componentDidMount(){
         this.setState({user: await AsyncStorage.getItem('user')});
         this.getPedidos();
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.timer);
     }
     
     renderItem = ({item})=>(
@@ -45,9 +51,9 @@ export default class MainScreen extends Component{
     }
 
     renderHeader = _=>(
-        <View style={{flexDirection:'row', width:'100%'}}>
+        <View style={{flexDirection:'row', width:'100%', marginTop: 10, marginBottom: 10}}>
             <Button
-                containerStyle={{width:'5%'}}
+                containerStyle={{width:'5%', marginLeft: '2%'}}
                 buttonStyle={{backgroundColor:'red'}}
                 title='!'
                 titleStyle={{fontWeight: 'bold'}}
@@ -55,7 +61,7 @@ export default class MainScreen extends Component{
             />
 
             <Button
-                containerStyle={{width:'85%'}}
+                containerStyle={{width:'75%', marginLeft:'4%', marginRight:'4%'}}
                 title='Selecionar restaurante'
                 onPress={_=>{
                     this.props.navigation.navigate('RestauranteScreen');
@@ -63,7 +69,7 @@ export default class MainScreen extends Component{
             />
 
             <Button
-                containerStyle={{width:'10%'}}
+                containerStyle={{width:'8%'}}
                 buttonStyle={{backgroundColor:'darkblue'}}
                 title='⟳'
                 titleStyle={{fontWeight: 'bold'}}

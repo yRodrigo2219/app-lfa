@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1326,
+  "packagerPid": 9060,
   "expoServerNgrokUrl": "https://nu-ns2.anonymous.sase.exp.direct",
   "packagerNgrokUrl": "https://packager.nu-ns2.anonymous.sase.exp.direct",
-  "ngrokPid": 1360,
+  "ngrokPid": 864,
   "webpackServerPort": null
 }
